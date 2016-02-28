@@ -12,7 +12,6 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
-    <!--<script src="javascripts/main.js"></script>-->
     
     <script src="javascripts/main.js"></script>
 
@@ -50,7 +49,7 @@
 					
 					<!--SUBJECT-->
 					<h3 style="display:inline-block;">Subject</h3>
-					<select id="SSR_CLSRCH_WRK_SUBJECT_SRCH$0" onchange="displayChoice()" class="PSDROPDOWNLIST" onchange="addchg_win0(this);return doEdits_win0(this,'','N','N','N','N','Y','Y',0);" style="width:194px;" size="1" tabindex="52" name="SSR_CLSRCH_WRK_SUBJECT_SRCH$0">
+					<select id="SSR_CLSRCH_WRK_SUBJECT_SRCH$0" onchange="setSubject()" class="PSDROPDOWNLIST" onchange="addchg_win0(this);return doEdits_win0(this,'','N','N','N','N','Y','Y',0);" style="width:194px;" size="1" tabindex="52" name="SSR_CLSRCH_WRK_SUBJECT_SRCH$0">
 						<option value="" selected="selected">&nbsp; </option>
 						<option value="ACC">Accounting (ACC)</option>
 						<option value="AAS">African American Studies (AAS)</option>
@@ -188,12 +187,7 @@
 					
 					<!--COURSE NAME-->
 					<h3 style="display:inline-block;">Course Name</h3>
-					<select>
-						<option value="" selected="selected">&nbsp; </option>
-						<option>...</option>
- 						<option>The College of Education</option>
-					</select>
-					<input type="text" name="Course#">
+					<input type="text" id="courseName">
 		
 					<br>
 					
@@ -202,13 +196,13 @@
 					<!--DAY-->
 					<h3 style="display:inline-block;">Day</h3>
 					<br>
-					<input type="checkbox" value="MON">Mon
-					<input type="checkbox" value="TUE">Tues
-					<input type="checkbox" value="WED">Wed
-					<input type="checkbox" value="THUR">Thurs
-					<input type="checkbox" value="FRI">Fri
-					<input type="checkbox" value="SAT">Sat
-					<input type="checkbox" value="SUN">Sun
+					<input type="checkbox" value="MON" id="MON">Mon
+					<input type="checkbox" value="TUE" id="TUE">Tues
+					<input type="checkbox" value="WED" id="WED">Wed
+					<input type="checkbox" value="THUR"id="THUR">Thurs
+					<input type="checkbox" value="FRI" id="FRI">Fri
+					<input type="checkbox" value="SAT" id="SAT">Sat
+					<input type="checkbox" value="SUN" id="SUN">Sun
 					
 					<br>
 					
@@ -313,24 +307,27 @@
 					<br>
 					
 					<h3>Course Attributes</h3>
-					<input type="checkbox" value="BSC">Behavioral, Social or Cultural <br>
-					<input type="checkbox" value="CBL">Community Based Learning <br>
-					<input type="checkbox" value="GEN">Gender <br>
-					<input type="checkbox" value="GLO">Global <br>
-					<input type="checkbox" value="VPA">Literary, Visual & Perform Arts <br>
-					<input type="checkbox" value="NSC">Natural Science <br>
-					<input type="checkbox" value="NSL">Natural Science with Lab <br>
-					<input type="checkbox" value="QUR">Quantitative Reasoning <br>
-					<input type="checkbox" value="RAE">Race &amp; Ethnicity <br>
-					<input type="checkbox" value="SCH">Social Change in Historical <br>
-					<input type="checkbox" value="EVPA">VPA for School of Education <br>
-					<input type="checkbox" value="WWK">World Views & Ways of Knowing 
-
+					<form>
+						<fieldset>
+							<input type="checkbox" value="BSC">Behavioral, Social or Cultural <br>
+							<input type="checkbox" value="CBL">Community Based Learning <br>
+							<input type="checkbox" value="GEN">Gender <br>
+							<input type="checkbox" value="GLO">Global <br>
+							<input type="checkbox" value="VPA">Literary, Visual & Perform Arts <br>
+							<input type="checkbox" value="NSC">Natural Science <br>
+							<input type="checkbox" value="NSL">Natural Science with Lab <br>
+							<input type="checkbox" value="QUR">Quantitative Reasoning <br>
+							<input type="checkbox" value="RAE">Race &amp; Ethnicity <br>
+							<input type="checkbox" value="SCH">Social Change in Historical <br>
+							<input type="checkbox" value="EVPA">VPA for School of Education <br>
+							<input type="checkbox" value="WWK">World Views & Ways of Knowing 
+						</fieldset>
+					</form>
 					<br>
 					<br>
 					
 					<button>Clear</button>
-					<button onclick="testAlert()">Search</button>
+					<button onclick = "setProperties()" type="submit">Search</button>
 			</div>
 			
         	<!--	<aside id="sidebar">
