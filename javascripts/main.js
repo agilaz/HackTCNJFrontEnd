@@ -77,11 +77,12 @@ function filter(wantedCourse , dbCourse ) {
         if (dbCourse.subject != wantedCourse.subject) { 
             return false;
         }
-    }
-    if    
+    }  
+    if (wantedCourse.courseNumber) {    
         if (dbCourse.courseNumber != wantedCourse.courseNumber) {
             return false;
         }
+    }
     if (wantedCourse.name) {
         if (dbCourse.name != wantedCourse.name) {
             return false;
@@ -106,13 +107,11 @@ function filter(wantedCourse , dbCourse ) {
                 }
             } //end of while (59)
             if (wantedCourse.attribute[i] != dbCourse.attribute[j]){ //B is B
-                alert ("false");
                 return false;
             }//end of if (64)
             i++;
         }//end of while 57
     }
-	alert("trueeee")
 	return true;
 }
 
