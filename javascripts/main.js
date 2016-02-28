@@ -1,8 +1,6 @@
 //console.log('This would be the main JS file.');
 //filler
 
-alert("LKJKLFJ:LKJSLD:FJS:J");
-
 var wantedCourse = {subject:"A" , courseNumber: "B" , name: "C" , day:"D" , attribute: "[A,B]"}
 var dbCourse = {subject:"A" , courseNumber: "B" , name: "C" , day:"D" , attribute: "[A]"}
 
@@ -57,5 +55,5 @@ var something = document.getElementById("render1").value=nameList.options[nameLi
 }
 
 function testAlert(){
-	alert(render1.value);
+	alert(nameList.);
 }
