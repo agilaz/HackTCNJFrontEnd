@@ -50,7 +50,12 @@ else {
 	alert("The filter is false");
 }
 
+//Get the name of the course
 function displayChoice(){
 var nameList = document.getElementById("SSR_CLSRCH_WRK_SUBJECT_SRCH$0");
-document.getElementById("render1").value=nameList.options[nameList.selectedIndex].text;
+var something = document.getElementById("render1").value=nameList.options[nameList.selectedIndex].value;
+}
+
+function testAlert(){
+	alert(render1.value);
 }
