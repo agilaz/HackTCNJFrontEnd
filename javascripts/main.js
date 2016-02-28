@@ -1,41 +1,52 @@
 //console.log('This would be the main JS file.');
 //filler
 
-var wantedCourse = {subject:"A" , courseNumber: "B" , name: "C" , day:"[D]" , attribute: "[A,B]"}
-var dbCourse = {subject:"AAS" , courseNumber: "B" , name: "C" , day:"[D]" , attribute: "[A,B,C]"}
+var wantedCourse = {subject:"A" , courseNumber: "B" , name: "C" , day:"" , attribute: "[A,B]"}
+var dbCourse = {subject:"AAS" , courseNumber: "B" , name: "C" , day:"" , attribute: "[A,B,C]"}
 
 //Get the name of the course
 function setSubject(){
 var nameList = document.getElementById("SSR_CLSRCH_WRK_SUBJECT_SRCH$0");
-document.getElementById("render1").value = nameList.options[nameList.selectedIndex].value;
-var x = render1.value;
-return x;
+return nameList.options[nameList.selectedIndex].value;
+}
+
+function setCourseNum() {
+	var num = document.getElementById("Course#");
+	return num;
 }
 
 
-//function testAlert() {
-//	alert(wantedCorse.subject);
-//}
-//function courseName(){
-//wantedCourse.name = courseName.value;
-//}
+function setName() {
+	var Name = document.getElementById("courseName");
+	return Name;
+}
+
+function setDay() {
+	var dayString = "";
+	if (document.getElementById("MON").checked) {
+		dayString = "Mo";
+	}
+	if (document.getElementById("TUE").checked)
+		{dayString = dayString.concat("Tu");}
+	if (document.getElementById("WED").checked)
+		{dayString = dayString.concat("We");}
+	if (document.getElementById("THUR").checked)
+		{dayString = dayString.concat("Th");}
+	if (document.getElementById("FRI").checked)
+		{dayString = dayString.concat("Fr");}
+	if (document.getElementById("SAT").checked)
+		dayString = dayString.concat("Sa");
+	if (document.getElementById("SUN").checked)	
+		dayString = dayString.concat("Su");
+	return dayString;
+}
 
 function setProperties(){
-	wantedCourse.subject = displayChoice(); //wantedCourse.subject = the value of what the user selects
-	alert(wantedCourse.subject); 
+	wantedCourse.subject = setSubject(); //wantedCourse.subject = the value of what the user selects
+	//alert(wantedCourse.subject); 
+	wantedCourse.day = setDay();
+	alert(wantedCourse.day);
 }
-	
-
-
-
-	//value of selected
-//wantedCourse.subject = render1.value;
-//wantedCourse.day = [document.getElementById("MON").getAttribute("value"),document.getElementById("TUE").getAttribute("value"),document.getElementById("WED").getAttribute("value"),document.getElementById("THUR").getAttribute("value"),document.getElementById("FRI").getAttribute("value"),document.getElementById("SAT").getAttribute("value"),document.getElementById("SUN").getAttribute("value")]
-//alert(watchCourse.day[0]);
-//alert(wantedCourse.subject);
-//	if (render1.value == "") {
-//		alert("sa;ldfkj
-//}
 
 function filter(wantedCourse , dbCourse ) {	
 	if (dbCourse.subject != wantedCourse.subject) {
@@ -50,9 +61,6 @@ function filter(wantedCourse , dbCourse ) {
 	if (dbCourse.day != wantedCourse.day) {
 		return false;
 	}
-	/*if ( isSubset(wantedCourse.attribute , dbCourse.attribute) != 1) {
-		return false;
-	}*/
 	//Checking for subset
 	var i = 0;
 	while (i < wantedCourse.attribute.length) {
