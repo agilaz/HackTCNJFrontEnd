@@ -48,27 +48,27 @@ function setAttributes() {
 		atrArray.push("Behavioral, Social or Cultural");
 	}
 	if (document.getElementById("cbl").checked)	
-		atrArray.push("Community Based Learning");
+		atrArray.push("CBL");
 	if (document.getElementById("gen").checked)
-		atrArray.push("Gender");
+		atrArray.push("GEN");
 	if (document.getElementById("glo").checked)
-		atrArray.push("Global");
+		atrArray.push("GLO");
 	if (document.getElementById("vpa").checked)
-		atrArray.push("Literary, Visual and Perform Arts");
+		atrArray.push("VPA");
 	if (document.getElementById("nsc").checked)
-		atrArray.push("Natural Science");
+		atrArray.push("NSC");
 	if (document.getElementById("nsl").checked)
-		atrArray.push("Natural Science with Lab");
+		atrArray.push("NSL");
 	if (document.getElementById("qur").checked)
-		atrArray.push("Quantitative Reasoning");
+		atrArray.push("QUR");
 	if (document.getElementById("rae").checked)
-		atrArray.push("Ethnicity");
+		atrArray.push("RAE");
 	if (document.getElementById("sch").checked)
-		atrArray.push("Change in Historical");
+		atrArray.push("SCH");
 	if (document.getElementById("vpa").checked)
-		atrArray.push("VPA for School of Education");
+		atrArray.push("VPA");
 	if (document.getElementById("wwk").checked) {
-		atrArray.push("World Views and Ways of Knowing");
+		atrArray.push("WWK");
 	}	
 	return atrArray;
 }
