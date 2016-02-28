@@ -1,8 +1,8 @@
 //console.log('This would be the main JS file.');
 //filler
 
-var wantedCourse = {subject:"A" , courseNumber: "B" , name: "C" , day:"" , attribute: "[A,B]"}
-var dbCourse = {subject:"AAS" , courseNumber: "B" , name: "C" , day:"" , attribute: "[A,B,C]"}
+var wantedCourse = {subject:"A" , courseNumber: "" , name: "" , day:"" , attribute: ""}
+var dbCourse = {subject:"AAS" , courseNumber: "" , name: "" , day:"" , attribute: "[Global]"}
 
 //Get the name of the course
 function setSubject(){
@@ -41,11 +41,35 @@ function setDay() {
 	return dayString;
 }
 
-function setProperties(){
-	wantedCourse.subject = setSubject(); //wantedCourse.subject = the value of what the user selects
-	//alert(wantedCourse.subject); 
-	wantedCourse.day = setDay();
-	alert(wantedCourse.day);
+function setAttributes() {
+	var atrArray = new Array();
+	if (document.getElementById("bsc").checked) {
+		atrArray.push("Behavioral, Social or Cultural");
+	}
+	if (document.getElementById("cbl").checked)	
+		atrArray.push("Community Based Learning");
+	if (document.getElementById("gen").checked)
+		atrArray.push("Gender");
+	if (document.getElementById("glo").checked)
+		atrArray.push("Global");
+	if (document.getElementById("vpa").checked)
+		atrArray.push("Literary, Visual and Perform Arts");
+	if (document.getElementById("nsc").checked)
+		atrArray.push("Natural Science");
+	if (document.getElementById("nsl").checked)
+		atrArray.push("Natural Science with Lab");
+	if (document.getElementById("qur").checked)
+		atrArray.push("Quantitative Reasoning");
+	if (document.getElementById("rae").checked)
+		atrArray.push("Ethnicity");
+	if (document.getElementById("sch").checked)
+		atrArray.push("Change in Historical");
+	if (document.getElementById("vpa").checked)
+		atrArray.push("VPA for School of Education");
+	if (document.getElementById("wwk").checked) {
+		atrArray.push("World Views and Ways of Knowing");
+	}	
+	return atrArray;
 }
 
 function filter(wantedCourse , dbCourse ) {	
@@ -83,4 +107,10 @@ function filter(wantedCourse , dbCourse ) {
 	return true;
 }
 
-filter(wantedCourse , dbCourse);
+function setProperties(){
+	wantedCourse.subject = setSubject(); //wantedCourse.subject = the value of what the user selects
+	//alert(wantedCourse.subject); 
+	wantedCourse.day = setDay();
+	wantedCourse.attribute = setAttributes();
+	filter(wantedCourse , dbCourse);
+}
