@@ -3,6 +3,8 @@
   
   <head>
   
+  	<title>NOTHING IS IMPAWSIBLE</title>
+  	
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -10,13 +12,77 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
-    <script type="text/js" src="javascripts/main.js"></script>
+    <!--<script src="javascripts/main.js"></script>-->
+    
+    <script>
+alert("LKJKLFJ:LKJSLD:FJS:J");
+
+var wantedCourse = {subject:"A" , courseNumber: "B" , name: "C" , day:"D" , attribute: "[A,B]"}
+var dbCourse = {subject:"A" , courseNumber: "B" , name: "C" , day:"D" , attribute: "[C,B,A]"}
+
+/*function isSubset(wantedCourse.attribute , dbCourse.attribute) {
+//var m = (wantedCourse.attribute.length) / (wantedCourse.attribute[0].length);
+//var n = (dbCourse.attribute.length) / (dbCourse.attribute[0].length);
+	for (i=0; i<; i++) {
+		for (j=0; j<m; j++) {		
+			if(dbCourse.attribute[i] == wantedCourse.attribute[i]) {
+				break;
+			}
+		}
+		if (j==m) {
+				return 0;
+		}
+	}
+	return 1;
+}	
+*/
+function filter(wantedCourse , dbCourse ) {
+	if (dbCourse.subject != wantedCourse.subject) {
+		return false;
+	}
+	if (dbCourse.courseNumber != wantedCourse.courseNumber) {
+		return false;
+	}
+	if (dbCourse.name != wantedCourse.name) {
+		return false;
+	}
+	if (dbCourse.day != wantedCourse.day) {
+		return false;
+	}
+	/*if ( isSubset(wantedCourse.attribute , dbCourse.attribute) != 1) {
+		return false;
+	}*/
+	//Checking for subset
+	var i = 0;
+	while (i < wantedCourse.attribute.length) {
+		var j = 0;
+		while (j < dbCourse.attribute.length) {
+			if (wantedCourse.attribute[i] != dbCourse.attribute[j]); { //if A is not C, then move to next element in db array
+				j++;
+			}
+		} 
+		if ((dbCourse.attribute[j] == null) || (wantedCourse.attribute[i] != dbCourse.attribute[j])){ //if A is not A
+			alert ("false");
+			return false;
+		}
+		i++;
+	}
+	return true; 
+}
+	
+if (filter(wantedCourse , dbCourse)) {
+	alert("The filter is true");
+}
+else {
+	alert("The filter is false");
+}
+    </script>
 
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <title>NOTHING IS IMPAWSIBLE</title>
+    
     
   </head>
 
