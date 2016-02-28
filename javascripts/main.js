@@ -1,8 +1,8 @@
 //console.log('This would be the main JS file.');
 //filler
 
-var wantedCourse = {subject:"A" , courseNumber: "" , name: "" , day:"" , attribute: ""}
-var dbCourse = {subject:"AAS" , courseNumber: "" , name: "" , day:"" , attribute: "[Global]"}
+var wantedCourse = {subject:"" , courseNumber: "" , name: "" , day:"" , attribute: ""}
+var dbCourse = {subject:"" , courseNumber: "" , name: "" , day:"" , attribute: [""]}
 
 //Get the name of the course
 function setSubject(){
@@ -73,36 +73,45 @@ function setAttributes() {
 }
 
 function filter(wantedCourse , dbCourse ) {
-	if (dbCourse.subject != wantedCourse.subject) { 
-		return false;
-	}
-	//if (dbCourse.courseNumber != wantedCourse.courseNumber) {
-		//return false;
-	//}
-	if (dbCourse.name != wantedCourse.name) {
-		return false;
-	}
-	if (dbCourse.day != wantedCourse.day) {
-		return false;
-	}
+	if (wantedCourse.subject) { //assuming condition is true if no subject value is passed (i.e. all subjects are default)
+        if (dbCourse.subject != wantedCourse.subject) { 
+            return false;
+        }
+    }
+    if    
+        if (dbCourse.courseNumber != wantedCourse.courseNumber) {
+            return false;
+        }
+    if (wantedCourse.name) {
+        if (dbCourse.name != wantedCourse.name) {
+            return false;
+        }
+    }
+    if (wantedCourse.day) {
+        if (dbCourse.day != wantedCourse.day) {
+            return false;
+        }
+    }
 	//Checking for subset
-	var i = 0;
-	while (i < wantedCourse.attribute.length) {
-		var j = 0;
-		while (j < dbCourse.attribute.length) {
-			if (wantedCourse.attribute[i] != dbCourse.attribute[j]) { //if A is not C, then = 1/B... ifA!=B, j=2/A
-				j++; //GOES BACK W/O INCREMENTING
-			}//end of if (60)
-			else {
-				break;
-			}
-		} //end of while (59)
-		if (wantedCourse.attribute[i] != dbCourse.attribute[j]){ //B is B
-			alert ("false");
-			return false;
-		}//end of if (64)
-		i++;
-	}//end of while 57
+	if (wantedCourse.attribute) {
+        var i = 0;
+        while (i < wantedCourse.attribute.length) {
+            var j = 0;
+            while (j < dbCourse.attribute.length) {
+                if (wantedCourse.attribute[i] != dbCourse.attribute[j]) { //if A is not C, then = 1/B... ifA!=B, j=2/A
+                    j++; //GOES BACK W/O INCREMENTING
+                }//end of if (60)
+                else {
+                    break;
+                }
+            } //end of while (59)
+            if (wantedCourse.attribute[i] != dbCourse.attribute[j]){ //B is B
+                alert ("false");
+                return false;
+            }//end of if (64)
+            i++;
+        }//end of while 57
+    }
 	alert("trueeee")
 	return true;
 }
