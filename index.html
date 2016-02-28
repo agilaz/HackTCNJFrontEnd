@@ -40,28 +40,11 @@
 
 		<div id="content-wrapper">
 			<div class="inner clearfix">
-    			<section id="main-content">
-        			<h2>Search for Classes</h2>
+    			<section id="main-content">  			
 
-					<h3 style="display:inline-block;">Institution</h3>
-					<select>
-						<option>...</option>
- 						<option>The College of Education</option>
-					</select>
-		
-					<br>
-
-					<h3 style="display:inline-block;">Term</h3>
-					<select>
-						<option>...</option>
- 						<option>2016 Spring</option>
- 						<option>2016 Summer</option>
-					</select>
-		
-					<p>Select at least 2 search criteria. Select Search to view your search results.</p>        			
-
-					<h2>Class Search</h2>
-		
+					<h2>Class Search Criteria</h2>
+					
+					<!--SUBJECT-->
 					<h3 style="display:inline-block;">Subject</h3>
 					<select id="SSR_CLSRCH_WRK_SUBJECT_SRCH$0" class="PSDROPDOWNLIST" onchange="addchg_win0(this);return doEdits_win0(this,'','N','N','N','N','Y','Y',0);" style="width:194px;" size="1" tabindex="52" name="SSR_CLSRCH_WRK_SUBJECT_SRCH$0">
 						<option value="" selected="selected">&nbsp; </option>
@@ -181,50 +164,36 @@
 					</select>
 		
 					<br>
-
+					
+					<!--COURSE NUMBER-->
 					<h3 style="display:inline-block;">Course Number</h3>
 					<select>
+						<option value="" selected="selected">&nbsp; </option>
+ 						<option>contains</option>
+ 						<option>greater than or equal to</option>
+ 						<option>is exactly</option>
+ 						<option>less than or equal to</option>
+					</select>
+					<input type="text" name="Course#">
+		
+					<br>
+					
+					<!--COURSE NAME-->
+					<h3 style="display:inline-block;">Course Name</h3>
+					<select>
+						<option value="" selected="selected">&nbsp; </option>
 						<option>...</option>
  						<option>The College of Education</option>
 					</select>
 					<input type="text" name="Course#">
 		
 					<br>
-
-					<h3 style="display:inline-block;">Course Career</h3>
-					<select>
-						<option>...</option>
- 						<option>The College of Education</option>
-					</select>
-		
-					<h2>Additional Search Criteria</h2>
-		
-					<h3 style="display:inline-block;">Meeting Start Time</h3>
-					<select>
-						<option>...</option>
- 						<option>The College of Education</option>
-					</select>
-					<input type="text" name="MeetStart">
-		
-					<br>
-
-					<h3 style="display:inline-block;">Meeting End Time</h3>
-					<select>
-						<option>...</option>
- 						<option>The College of Education</option>
-					</select>
-					<input type="text" name="MeetEnd">
-		
-					<br>
-
+					
+					<!--SCHEDULE-->
+					
+					<!--DAY-->
 					<h3 style="display:inline-block;">Days of Week</h3>
-					<select>
-						<option>...</option>
- 						<option>The College of Education</option>
-					</select>
-					
 					<br>
-					
 					<input type="checkbox" value="MON">Mon
 					<input type="checkbox" value="TUE">Tues
 					<input type="checkbox" value="WED">Wed
@@ -235,79 +204,102 @@
 					
 					<br>
 					
+					<!--TIME-->
+					<table>
+					  <tr>
+						<td>Hour
+							<select>
+								<option>00</option>
+								<option>01</option>
+								<option>02</option>
+								<option>03</option>
+								<option>04</option>
+								<option>05</option>
+								<option>06</option>
+								<option>07</option>
+								<option>08</option>
+								<option>09</option>
+								<option>10</option>
+								<option>11</option>
+								<option>12</option>
+							</select>
+						</td>
+						<td>Minute
+							<select>
+								<option>00</option>
+								<option>05</option>
+								<option>10</option>
+								<option>15</option>
+								<option>20</option>
+								<option>25</option>
+								<option>30</option>
+								<option>35</option>
+								<option>40</option>
+								<option>45</option>
+								<option>50</option>
+								<option>55</option>
+							</select>						
+						</td>
+						<td>AM/PM
+							<select>
+								<option>AM</option>
+								<option>PM</option>
+							</select>							
+						</td>
+					  </tr>
+					  <tr>
+						<td>Hour
+							<select>
+								<option>00</option>
+								<option>01</option>
+								<option>02</option>
+								<option>03</option>
+								<option>04</option>
+								<option>05</option>
+								<option>06</option>
+								<option>07</option>
+								<option>08</option>
+								<option>09</option>
+								<option>10</option>
+								<option>11</option>
+								<option>12</option>
+							</select>
+						</td>
+						<td>Minute
+							<select>
+								<option>00</option>
+								<option>05</option>
+								<option>10</option>
+								<option>15</option>
+								<option>20</option>
+								<option>25</option>
+								<option>30</option>
+								<option>35</option>
+								<option>40</option>
+								<option>45</option>
+								<option>50</option>
+								<option>55</option>
+							</select>						
+						</td>
+						<td>AM/PM
+							<select>
+								<option>AM</option>
+								<option>PM</option>
+							</select>							
+						</td>
+					  </tr>
+					</table> 
+					<!--3 COLUMNS: c1: Hour, Hour c2: Minute, Minute c3: am/pm-->
+					
 					<h3 style="display:inline-block;">Instructor Last Name</h3>
 					<select>
-						<option>...</option>
- 						<option>The College of Education</option>
+						<option value="" selected="selected">&nbsp; </option>
+						<option>begins with</option>
+ 						<option>contains</option>
+ 						<option>is exactly</option>
 					</select>
 					<input type="text" name="InstrLN">
 					
-					<br>
-					
-					<input type="text" name="InstrLN">
-					
-					<br>
-					
-					<input type="text" name="InstrLN">
-					
-					<br>
-					
-					<h3 style="display:inline-block;">Minimum Units</h3>
-					<select>
-						<option>...</option>
- 						<option>The College of Education</option>
-					</select>
-					<input type="text" name="InstrLN">
-					
-					<br>
-					
-					<h3 style="display:inline-block;">Maximum Units</h3>
-					<select>
-						<option>...</option>
- 						<option>The College of Education</option>
-					</select>
-					<input type="text" name="InstrLN">
-					
-					<br>
-					
-					<h3 style="display:inline-block;">Course Component</h3>
-					<select>
-						<option>...</option>
- 						<option>The College of Education</option>
-					</select>
-					
-					<br>
-					
-					<h3 style="display:inline-block;">Session</h3>
-					<select>
-						<option>...</option>
- 						<option>The College of Education</option>
-					</select>
-					
-					<br>
-					
-					<h3 style="display:inline-block;">Mode of Instruction</h3>
-					<select>
-						<option>...</option>
- 						<option>The College of Education</option>
-					</select>
-					
-					<br>
-					
-					<h3 style="display:inline-block;">Campus</h3>
-					<select>
-						<option>...</option>
- 						<option>The College of Education</option>
-					</select>
-					
-					<br>
-					
-					<h3 style="display:inline-block;">Location</h3>
-					<select>
-						<option>...</option>
- 						<option>The College of Education</option>
-					</select>
-
 					<br>
 
 					<input type="checkbox" value="BSC">Behavioral, Social or Cultural <br>
@@ -323,7 +315,7 @@
 					<input type="checkbox" value="EVPA">VPA for School of Education <br>
 					<input type="checkbox" value="WWK">World Views & Ways of Knowing 
 
-        		<aside id="sidebar">
+        	<!--	<aside id="sidebar">
         			<a href="https://github.com/agilaz/agilaz.pages.io/zipball/master" class="button">
         				<small>Download</small>
         				.zip file
@@ -335,6 +327,7 @@
 					<p class="repo-owner"><a href="https://github.com/agilaz/agilaz.pages.io"></a> is maintained by <a href="https://github.com/agilaz">agilaz</a>.</p>
           			<p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
         		</aside>
+        	-->
 			</div>
 		</div>
 		
