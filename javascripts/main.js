@@ -72,13 +72,13 @@ function setAttributes() {
 	return atrArray;
 }
 
-function filter(wantedCourse , dbCourse ) {	
-	if (dbCourse.subject != wantedCourse.subject) {
-		return false;
-	} 
-	if (dbCourse.courseNumber != wantedCourse.courseNumber) {
+function filter(wantedCourse , dbCourse ) {
+	if (dbCourse.subject != wantedCourse.subject) { 
 		return false;
 	}
+	//if (dbCourse.courseNumber != wantedCourse.courseNumber) {
+		//return false;
+	//}
 	if (dbCourse.name != wantedCourse.name) {
 		return false;
 	}
