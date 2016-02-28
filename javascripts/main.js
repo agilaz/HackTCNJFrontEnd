@@ -4,23 +4,7 @@
 alert("LKJKLFJ:LKJSLD:FJS:J");
 
 var wantedCourse = {subject:"A" , courseNumber: "B" , name: "C" , day:"D" , attribute: "[A,B]"}
-var dbCourse = {subject:"A" , courseNumber: "B" , name: "C" , day:"D" , attribute: "[A,B]"}
-
-function isSubset(wantedCourse.attribute , dbCourse.attribute) {
-var m = (wantedCourse.attribute.length) / (wantedCourse.attribute[0].length);
-var n = (dbCourse.attribute.length) / (dbCourse.attribute[0].length);
-	for (i=0; i<n; i++) {
-		for (j=0; j<m; j++) {		
-			if(dbCourse.attribute[i] == wantedCourse.attribute[i]) {
-				break;
-			}
-		}
-		if (j==m) {
-				return 0;
-		}
-	}
-	return 1;
-}	
+var dbCourse = {subject:"A" , courseNumber: "B" , name: "C" , day:"D" , attribute: "[A]"}
 
 function filter(wantedCourse , dbCourse ) {
 	if (dbCourse.subject != wantedCourse.subject) {
@@ -35,9 +19,27 @@ function filter(wantedCourse , dbCourse ) {
 	if (dbCourse.day != wantedCourse.day) {
 		return false;
 	}
-	if ( isSubset(wantedCourse.attribute , dbCourse.attribute) != 1) {
+	/*if ( isSubset(wantedCourse.attribute , dbCourse.attribute) != 1) {
 		return false;
-	}
+	}*/
+	//Checking for subset
+	var i = 0;
+	while (i < wantedCourse.attribute.length) {
+		var j = 0;
+		while (j < dbCourse.attribute.length) {
+			if (wantedCourse.attribute[i] != dbCourse.attribute[j]) { //if A is not C, then = 1/B... ifA!=B, j=2/A
+				j++; //GOES BACK W/O INCREMENTING
+			}//end of if (60)
+			else {
+				break;
+			}
+		} //end of while (59)
+		if (wantedCourse.attribute[i] != dbCourse.attribute[j]){ //B is B
+			alert ("false");
+			return false;
+		}//end of if (64)
+		i++;
+	}//end of while 57
 	return true; 
 }
 	
@@ -46,4 +48,9 @@ if (filter(wantedCourse , dbCourse)) {
 }
 else {
 	alert("The filter is false");
+}
+
+function displayChoice(){
+var nameList = document.getElementById("SSR_CLSRCH_WRK_SUBJECT_SRCH$0");
+document.getElementById("render1").value=nameList.options[nameList.selectedIndex].text;
 }
