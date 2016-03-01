@@ -34,9 +34,22 @@ var text = '[{"subject":"AAS","courseNumber":"270","name":"AAS 270 - TOPICS IN A
 
 var something = 0;
 
-var wantedCourse = {subject:"" , courseNumber: "" , name: "" , day:"" , attribute: ""}
-var dbCourse = {subject:"" , courseNumber: "" , name: "" , day:"" ,  attribute: [""]}
+var wantedCourse = {subject:"" , courseNumber: "" , name: "" , day:"" , attributes: ""}
+var dbCourse = [{subject:"" , courseNumber: "" , name: "" , day:"" ,  attributes: [""]}]
+/* 
 
+wantedCourse must be an object with properties that are set according to what the user inputs on the HTML page. 
+
+dbCourse must be an array of objects, rather than just an isolated object like wantedCourse. Each of the objects in the array should contain
+
+So instead of comparing "wantedCourse" to "dbCourse", we should compare "wantedCourse" to "dbCourse[0]", "dbCourse[1]", "etc." by looping through each dbCourse object. 
+Then we should display each of the dbCourse objects that returned true.
+--CAVEAT--
+    WE MUST REMOVE ALL OF THE SURROUNDING QUOTES IN EACH OF THE PROPERTY NAMES TO MAKE PROPER MATCHES.
+        i.e. --> in the text file, we must remove change: 
+            "subject" --> subject
+
+*/
 //Get the name of the course
 function setSubject(){
 var nameList = document.getElementById("SSR_CLSRCH_WRK_SUBJECT_SRCH$0");
@@ -127,19 +140,19 @@ function filter(wantedCourse , dbCourse ) {
         }
     }
 	//Checking for subset
-	if (wantedCourse.attribute) {
+	if (wantedCourse.attributes) {
         var i = 0;
-        while (i < wantedCourse.attribute.length) {
+        while (i < wantedCourse.attributes.length) {
             var j = 0;
-            while (j < dbCourse.attribute.length) {
-                if (wantedCourse.attribute[i] != dbCourse.attribute[j]) { //if A is not C, then = 1/B... ifA!=B, j=2/A
+            while (j < dbCourse.attributes.length) {
+                if (wantedCourse.attributes[i] != dbCourse.attributes[j]) { //if A is not C, then = 1/B... ifA!=B, j=2/A
                     j++; //GOES BACK W/O INCREMENTING
                 }//end of if (60)
                 else {
                     break;
                 }
             } //end of while (59)
-            if (wantedCourse.attribute[i] != dbCourse.attribute[j]){ //B is B
+            if (wantedCourse.attributes[i] != dbCourse.attributes[j]){ //B is B
                 return false;
             }//end of if (64)
             i++;
@@ -156,7 +169,7 @@ function setProperties(){
 	wantedCourse.subject = setSubject(); //wantedCourse.subject = the value of what the user selects
 	//alert(wantedCourse.subject); 
 	wantedCourse.day = setDay();
-	wantedCourse.attribute = setAttributes();
+	wantedCourse.attributes = setAttributes();
     wantedCourse.courseNumber = setCourseNum();
     wantedCourse.courseName = setCourseName();
 	var jsonArray = JSON.parse(text);
