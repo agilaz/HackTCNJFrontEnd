@@ -1,0 +1,8 @@
+{
+  "name": "nothings-impawsible",
+  "version": "0.0.1",
+  "description": "paws improvements",
+  "dependencies": {
+    "mongodb": "^2.1.7"
+  }
+}
