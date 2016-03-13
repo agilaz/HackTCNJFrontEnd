@@ -5,7 +5,7 @@
 // });
 //var assert = require('assert');
 var url = "https://nothingsimpawsible.herokuapp.com/";
-var socket = io.connect("http://localhost:5000");
+var socket = io.connect(url);
 
 function pullInfo() {
   socket.emit('get data');
